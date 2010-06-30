@@ -92,6 +92,9 @@ In your HTML source:
        #HTML
        <div id="info">Loading info...</div>
 
+Screenshots
+-----------
+
 ![Screenshot](http://farm5.static.flickr.com/4138/4742591148_31857e3460_b.jpg)
 ![Screenshot](http://farm5.static.flickr.com/4140/4742591118_c1912f4024_b.jpg)
 ![Screenshot](http://farm5.static.flickr.com/4074/4741952699_330e828822_b.jpg)
