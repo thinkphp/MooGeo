@@ -4,9 +4,6 @@ MooGeo
 This is a simple plugin MooTools delivering various geo tasks like geolocation, reverse geocoding and content analysis.
 
 ![Screenshot](http://farm5.static.flickr.com/4138/4742102395_a0daa4e42e_b.jpg)
-![Screenshot](http://farm5.static.flickr.com/4138/4742591148_31857e3460_b.jpg)
-![Screenshot](http://farm5.static.flickr.com/4140/4742591118_c1912f4024_b.jpg)
-![Screenshot](http://farm5.static.flickr.com/4074/4741952699_330e828822_b.jpg)
 
 How to use
 ----------
@@ -94,4 +91,8 @@ In your HTML source:
 
        #HTML
        <div id="info">Loading info...</div>
+
+![Screenshot](http://farm5.static.flickr.com/4138/4742591148_31857e3460_b.jpg)
+![Screenshot](http://farm5.static.flickr.com/4140/4742591118_c1912f4024_b.jpg)
+![Screenshot](http://farm5.static.flickr.com/4074/4741952699_330e828822_b.jpg)
        
