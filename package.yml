@@ -1,5 +1,5 @@
 name: MooGeo
-author: Adrian
+author: thinkphp
 current: v1.0 
 category: Request 
 tags: [request,yql,json,geo,geolocation,geocoding,yahoo,placemaker,geo.places,ip,location,maxmind]
