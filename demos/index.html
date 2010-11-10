@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>MooGeo - YQL Geo Library based on framework MooTools</title>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">
+   <style type="text/css">
+ #doc{
+    background:#f8f8f8;
+    color:#333;
+    border:1em solid #f8f8f8;
+    font-family:georgia,serif;
+  }
+  h1{
+    font-size:180%;
+    color:#69c;
+  }
+  h2{
+    font-size:150%;
+    color:#69c;
+  }
+  h3{
+    font-size:140%;
+    color:#69c;
+  }
+  a.example {color: #69c;font-size: 20px}
+  pre {background: #69c;} 
+  pre code{color: #fff;font-size: 20px}
+  #ft {margin-top: 30px;color: #999}
+  #ft p{
+    font-size:85%;
+    text-align:right;
+  }
+  #ft p a {color: #69c}
+   </style>
+</head>
+<body>
+<div id="doc" class="yui-t7">
+   <div id="hd" role="banner"><h1>MooGeo - geolocation, reverse geocoding and content analysis</h1></div>
+   <div id="bd" role="main">
+      <p>This is a simple plugin MooTools that answers most of your geo questions. It wraps the following services in a simple interface:</p>
+      <ul>
+         <li>Yahoo PlaceMaker</li>
+         <li>Yahoo GeoPlanet</li>
+         <li>jsonip.appspot.com</li>
+         <li>W3C Geo location</li>
+         <li>Flickr.places.findLatLon</li>
+      </ul>
+      <h2>Syntax</h2>
+<pre><code id="syntax">
+ new MooGeo(what,options);
+
+</code></pre>
+
+      <h2>Implements:</h2>
+      <p>Options, Events</p> 
+      <h2>Arguments:</h2>
+      <dl>
+        <dt>what</dt>
+        <dd>Is a thing you want to analyse - this could be the URL to a web document, a text, an IP, a pair of latitude and longitude information, 'visitor' to detect the geographic location of the current visitor or 'ipvisitor' to grab visitor's IP.</dd> 
+        <dt>options</dt>
+        <dd>instance'options see below</dd>
+      </dl>
+
+      <h2>Options</h2>
+      <dl>
+        <dt>endpoint</dt>
+        <dd>endpoint YQL Service API</dd> 
+        <dt>format</dt>
+        <dd>the format that you want to receive the data</dd>
+        <dt>injectScript</dt>
+        <dd>the location where you want to inject the script</dd>
+      </dl>
+
+      <h2>Events</h2>
+      <dl>
+        <dt>request</dt>
+        <dd>This event is fired whenever is sent a request</dd> 
+        <dt>complete</dt>
+        <dd>This event is fired whenever the request has been completed and the actually instance receives a response from the server</dd> 
+        <dt>success</dt>
+        <dd>This event is fired whenever the request has been completed and the actually instance receives a response from the server</dd> 
+        <dt>failure</dt>
+        <dd>This event is fired whenever is receved a message of error from the server</dd>
+        <dt>error</dt>
+        <dd>This event is fired whenever is receved a message of error from the server</dd>
+      </dl>
+      <h2>Returns</h2>
+      <p> (Object) A new Object MooGeo.</p>
+	<div class="yui-g">	
+      <h2>Samples: </h2>
+       <ul>
+        <li><a href="visitor.html" class="example">Get information from IP visitor</a> (using W3C geolocation API)</li>
+        <li><a href="getfromip.html" class="example">Get the place from an IP number</a></li>
+        <li><a href="getfromtext.html" class="example">Get geographical data from text</a></li>
+        <li><a href="getfromurl.html" class="example">Get all geographical data from a certain URL</a></li>
+        <li><a href="getfromlatlon.html" class="example">Get all kind of data from a latitude/longitude pair</a></li>
+        <li><a href="grabIP.html" class="example">Grab your IP and place on the map</a></li>
+        <li><a href="photos-around-you.html" class="example">You can get the photos around you</a></li>
+       </ul>
+       <h2>Usage</h2>
+       <p>To use this geo plugin, simply include it in your document.</p> 
+       <h2>Find the user (using the W3C geolocation API)</h2>  
+       <pre><code>
+ new MooGeo('visitor',{
+     onComplete: function(o) {
+        console.log(o);
+     }  
+ });        
+       </code></pre> 
+
+       <h2>Find the user's IP</h2>  
+       <pre><code>
+ new MooGeo('ipvisitor',{
+     onComplete: function(o) {
+        console.log(o);
+     }  
+ });        
+       </code></pre> 
+
+   <h2>Get the place from an IP number</h2>  
+       <pre><code>
+ new MooGeo('188.25.34.67',{
+     onComplete: function(o) {
+        console.log(o);
+     }  
+ });        
+       </code></pre> 
+
+   <h2>Get all the geo locations from a certain URL</h2>  
+   <p>You can scrape a certain document URL for geographical locations:</p>
+       <pre><code>
+ new MooGeo('http://mootools.net/developers/',{
+     onComplete: function(o) {
+        console.log(o);
+     }  
+ });        
+
+       </code></pre> 
+
+  <h2>Getting location information from latitude/longitude</h2>  
+  <p>You can get all kind of data from a latitude/longitude pair. You can either send them in as two parameters or as an array:</p>
+       <pre><code>
+ new MooGeo(44.4333,26.1000,{
+     onComplete: function(o) {
+        console.log(o.place.name + ',' + o.place.country.content);
+     }  
+ });        
+       </code></pre> 
+
+       <pre><code>
+ new MooGeo([44.4333,26.1000],{
+     onComplete: function(o) {
+        console.log(o.place.name + ',' + o.place.country.content);
+     }  
+ });        
+       </code></pre> 
+
+  <h2>Getting the geographical location from a text</h2>  
+  <p>You can send an arbitrary text to the object to find the geographical information in it:</p>
+
+       <pre><code>
+ new MooGeo('bucharest,ro',{
+     onComplete: function(o){
+       console.log(o.place.name + '(' + o.place.centroid.latitude + ',' + o.place.centroid.longitude);  
+     }
+ });
+       </code></pre> 
+
+	</div>
+   </div>
+   <div id="ft" role="contentinfo"><p>dont't forget to follow me @<a href="http://twitter.com/thinkphp">thinkphp</a>| You can grab the source code of this samples <a href="http://mootools.net/forge/download/MooGeo/v1.0">MooGeo</a> on <a href="http://mootools.net/forge/download/MooGeo/v1.0">Forge</a></p></div>
+</div>
+</body>
+</html>
