@@ -1,7 +1,0 @@
-name: MooGeo
-author: thinkphp
-current: v2.2
-category: Request 
-tags: [request,yql,json,geo,geolocation,geocoding,yahoo,placemaker,geo.places,ip,location,maxmind]
-docs: http://github.com/thinkphp/MooGeo/blob/v1.0/Docs/MooGeo.md
-demo: http://thinkphp.github.com/MooGeo/
