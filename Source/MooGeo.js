@@ -65,7 +65,7 @@ var MooGeo = new Class({
             },
 
             getFromIP: function(ip) {
-                var yql = "select * from geo.places where woeid in (select place.woeid from flickr.places where (lat,lon) in (select Latitude,Longitude from ip.location where ip='"+ip+"'))";
+                var yql = "select * from geo.places where woeid in (select place.woeid from flickr.places where (lat,lon) in (select Latitude,Longitude from ip.location where ip='"+ip+"' and key='9fa9c90700b942bbbbbeb19decb33a591140386d2d407d335c46467703002e0b'))";
                 this.fireEvent('request',yql);   
                 if(window.console) {console.log(yql);}
                 this.load(yql,'MooGeo_map.request');
